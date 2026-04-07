@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-sqid",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "n8n community node for encoding and decoding Sqids (short unique IDs from numbers)",
 	"license": "MIT",
 	"homepage": "https://github.com/IncentFit/n8n-nodes-sqid",
