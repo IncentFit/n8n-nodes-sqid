@@ -50,6 +50,9 @@
 		"release-it": "19.2.4",
 		"typescript": "5.9.3"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"peerDependencies": {
 		"n8n-workflow": "*"
 	}
