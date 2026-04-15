@@ -96,7 +96,11 @@ export class Sqid implements INodeType {
 			): Promise<INodeCredentialTestResult> {
 				try {
 					const alphabet = credential.data?.alphabet as string;
-					new Sqids(alphabet ? { alphabet } : undefined);
+					const minLength = Number(credential.data?.minLength) || 0;
+					new Sqids({
+						...(alphabet ? { alphabet } : {}),
+						...(minLength > 0 ? { minLength } : {}),
+					});
 					return { status: 'OK', message: 'Alphabet is valid' };
 				} catch (error) {
 					return { status: 'Error', message: (error as Error).message };
@@ -110,8 +114,12 @@ export class Sqid implements INodeType {
 		const returnData: INodeExecutionData[] = [];
 		const credentials = await this.getCredentials('sqidApi');
 		const alphabet = credentials.alphabet as string;
+		const minLength = Number(credentials.minLength) || 0;
 
-		const sqids = new Sqids(alphabet ? { alphabet } : undefined);
+		const sqids = new Sqids({
+			...(alphabet ? { alphabet } : {}),
+			...(minLength > 0 ? { minLength } : {}),
+		});
 
 		for (let i = 0; i < items.length; i++) {
 			try {

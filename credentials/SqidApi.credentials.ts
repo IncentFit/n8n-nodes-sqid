@@ -15,5 +15,14 @@ export class SqidApi implements ICredentialType {
 			description:
 				'Custom alphabet to use for encoding/decoding. Leave empty to use the default alphabet.',
 		},
+		{
+			displayName: 'Minimum Length',
+			name: 'minLength',
+			type: 'number',
+			default: 0,
+			placeholder: 'e.g. 8',
+			description:
+				'Minimum length of the generated Sqid. Set to 0 for no minimum.',
+		},
 	];
 }
